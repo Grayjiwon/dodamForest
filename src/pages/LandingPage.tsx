@@ -46,8 +46,8 @@ export default function LandingPage() {
                         </div>
 
                         {/* New Character Image */}
-                        <div className="mt-4 flex justify-center">
-                            <img src={characterGreen} alt="Green Teacher" className="w-[30rem] md:w-[45rem] h-auto object-contain" />
+                        <div className="mt-4 flex justify-center w-full">
+                            <img src={characterGreen} alt="Green Teacher" className="w-full max-w-[30rem] md:max-w-[45rem] h-auto object-contain" />
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,11 @@ export default function LandingPage() {
                     </p>
 
                     <div className="mt-8">
-                        <Link to="/booking" className="inline-block px-8 py-3 border-2 border-white rounded-full text-lg font-bold hover:bg-white hover:text-[#aac652] transition">
+                        <Link
+                            to="#"
+                            onClick={(e) => e.preventDefault()}
+                            className="inline-block px-8 py-3 border-2 border-white rounded-full text-lg font-bold opacity-60 cursor-not-allowed transition"
+                        >
                             숲 체험 학교 신청하기
                         </Link>
                     </div>
@@ -113,93 +117,14 @@ export default function LandingPage() {
                             preserveAspectRatio="none"
                         >
                             <path
-                                fill="#ffda31"
+                                fill="#5D9603"
                                 d="M0,192 C360,260 720,120 1080,192 C1260,230 1350,180 1440,160 L1440,320 L0,320 Z"
                             />
                         </svg>
                     </div>
                 </div>
 
-                {/* ===== 노란 섹션 ===== */}
-                <div className="bg-[#ffda31] pt-12 pb-0 relative">
 
-                    <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 relative z-10 mb-20">
-
-                        {/* Left Column */}
-                        <div className="md:w-1/3 text-left px-6">
-                            <div className="mb-6">
-                                <img
-                                    src="https://cdn.imweb.me/thumbnail/20250228/6bbc2cd65e06e.png"
-                                    alt="Leaf Decoration"
-                                    className="w-16 h-16 object-contain"
-                                />
-                            </div>
-
-                            <h2 className="text-5xl md:text-6xl font-black text-gray-900 leading-tight mb-4">
-                                숲도담 2026<br />
-                                연간계획표
-                            </h2>
-
-                            <p className="text-xl font-bold text-gray-800 mb-8">
-                                &lt;숲도담&gt;의 연간 일정을 확인해보세요!
-                            </p>
-
-                            <Link
-                                to="/booking"
-                                className="inline-block bg-white text-black px-10 py-4 rounded-full font-black text-lg shadow-xl hover:bg-gray-100 transition-all hover:scale-105 active:scale-95"
-                            >
-                                신청하기
-                            </Link>
-
-                            <div className="mt-16 hidden md:block">
-                                <img
-                                    src="https://cdn.imweb.me/thumbnail/20250515/b2719d223e80b.png"
-                                    alt="Dodam Character"
-                                    className="w-64 h-auto drop-shadow-xl animate-bounce-slow"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Right Column */}
-                        <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10 px-6">
-                            {[
-                                { month: '1월', title: '새들의 겨울나기', desc: '새들은 겨울에 어디에서 살고 무엇을 먹을까?' },
-                                { month: '2월', title: '봄을 준비하는 식물', desc: '나무들은 겨울을 어떻게 날까?' },
-                                { month: '3월', title: '숲속 봄 마중', desc: '겨울잠에서 깨어난 숲의 생명들' },
-                                { month: '4월', title: '꽃들의 잔치', desc: '다양한 봄꽃과 벌레들의 만남' },
-                                { month: '5월', title: '초록빛 숲의 요정', desc: '싱그러운 잎사귀와 나비 탐구' },
-                                { month: '6월', title: '여름 숲 소리 여행', desc: '시원한 계곡과 곤충 음악대' },
-                                { month: '7월', title: '열매가 익어가는 숲', desc: '여름 열매와 씨앗의 비밀' },
-                                { month: '8월', title: '숲속 물놀이 탐험', desc: '수생 생물과 함께하는 시원한 체험' },
-                                { month: '9월', title: '가을을 알리는 소식', desc: '가을 벌레와 풀꽃 이야기' },
-                                { month: '10월', title: '알록달록 숲의 변신', desc: '단풍잎과 함께하는 예술 활동' },
-                                { month: '11월', title: '낙엽과 흙의 숨바꼭질', desc: '흙 속 생물과 겨울 준비' },
-                                { month: '12월', title: '숲속 친구들의 겨울잠', desc: '추운 겨울을 견디는 소중한 생명들' },
-                            ].map((plan, idx) => (
-                                <div key={idx} className="border-b border-gray-900/10 pb-4 group">
-                                    <div className="text-gray-900 font-black text-xl mb-1">{plan.month}</div>
-                                    <h3 className="text-gray-900 font-bold text-lg leading-tight group-hover:text-green-800 transition-colors">
-                                        {plan.title}
-                                    </h3>
-                                    <p className="text-gray-700 text-sm mt-1 font-medium leading-relaxed">
-                                        {plan.desc}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-
-                    </div>
-
-                    {/* Grass Footer */}
-                    <div className="w-full h-auto mt-auto">
-                        <img
-                            src="https://cdn.imweb.me/thumbnail/20250228/65712d3e59245.png"
-                            alt="Grass Footer"
-                            className="w-full h-auto block"
-                        />
-                    </div>
-
-                </div>
 
             </section>
 
