@@ -20,35 +20,35 @@ export default function LandingPage() {
 
                 {/* Overlay Content Container */}
                 <div className="relative z-10 flex flex-col items-center justify-start pt-24 pb-12 md:justify-center md:py-20 text-center px-4 w-full">
-                    <div className="max-w-4xl mx-auto space-y-2 md:space-y-4">
+                    <div className="max-w-4xl mx-auto space-y-1 md:space-y-2">
                         <p className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">2026년 상반기</p>
 
-                        <h1 className="text-3xl md:text-5xl font-black mb-2 leading-tight text-gray-900">
+                        <h1 className="text-3xl md:text-5xl font-black mb-1 md:mb-2 leading-tight text-gray-900">
                             도담이를<br />
                             기다리고 있어요!
                         </h1>
 
-                        <div className="space-y-1 mb-6">
+                        <div className="space-y-0.5 mb-3 md:mb-5">
                             <h2 className="text-lg md:text-xl font-bold text-gray-900">숲 체험 교육<br />어린이 모집 안내</h2>
                             <p className="text-xs md:text-sm font-medium text-gray-800">(유치부 5-7세 / 초등부 8-12세)</p>
                         </div>
 
-                        <div className="text-xs md:text-sm leading-relaxed space-y-1 font-medium text-gray-800 hidden sm:block">
+                        <div className="text-xs md:text-sm leading-tight space-y-0.5 font-medium text-gray-800 hidden sm:block">
                             <p>&lt;숲 도담&gt;에서는 학부모님께서 팀을 구성하시면,</p>
                             <p>선생님과 상담 후 일정을 조율하고 있어요.</p>
                             <p>(개별 수업 신청은 별도 문의 부탁드려요.)</p>
                         </div>
 
-                        <p className="text-[10px] md:text-xs text-gray-700 mt-2 font-medium">* 문의는 하단 &lt;자주 묻는 질문&gt; 확인 후 연락주세요!</p>
+                        <p className="text-[10px] md:text-xs text-gray-700 mt-1 font-medium">* 문의는 하단 &lt;자주 묻는 질문&gt; 확인 후 연락주세요!</p>
 
-                        <div className="mt-4 md:mt-8">
+                        <div className="mt-2 md:mt-4">
                             <a href="tel:010-8395-1256" className="inline-block px-6 py-2 md:px-8 md:py-3 border-2 border-black rounded-full font-bold text-sm md:text-lg hover:bg-black hover:text-[#FFE142] transition bg-white/50 backdrop-blur-sm">
                                 문의 : 초록이 선생님 010-8395-1256
                             </a>
                         </div>
 
                         {/* New Character Image */}
-                        <div className="mt-4 flex justify-center w-full">
+                        <div className="mt-2 flex justify-center w-full">
                             <img src={characterGreen} alt="Green Teacher" className="w-full max-w-[30rem] md:max-w-[45rem] h-auto object-contain" />
                         </div>
                     </div>
