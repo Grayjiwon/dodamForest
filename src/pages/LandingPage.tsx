@@ -8,16 +8,18 @@ export default function LandingPage() {
     return (
         <div className="pt-10">
             {/* Hero Section with Overlay Content */}
-            <section className="relative w-full">
+            <section className="relative w-full min-h-[600px] md:min-h-screen flex flex-col justify-center overflow-hidden bg-white">
                 {/* Background Image */}
-                <img
-                    src={landingMain}
-                    alt="Main Visual"
-                    className="w-full h-auto block min-h-[600px] object-cover md:object-contain md:min-h-0"
-                />
+                <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+                    <img
+                        src={landingMain}
+                        alt="Main Visual"
+                        className="w-full h-full object-cover object-top md:object-contain md:object-top"
+                    />
+                </div>
 
                 {/* Overlay Content Container */}
-                <div className="absolute inset-0 flex flex-col items-center justify-start pt-24 md:pt-32 text-center px-4">
+                <div className="relative z-10 flex flex-col items-center justify-start pt-24 pb-12 md:justify-center md:py-20 text-center px-4 w-full">
                     <div className="max-w-4xl mx-auto space-y-2 md:space-y-4">
                         <p className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">2026년 상반기</p>
 
