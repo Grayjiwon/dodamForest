@@ -1,22 +1,23 @@
-import { Link } from 'react-router-dom';
 import landingMain from '../assets/landing_main.png';
 import characterGreen from '../assets/character_green.png';
 import footerDecoration from '../assets/footer_decoration.png';
 import sectionDivider from '../assets/section_divider.png';
+import qrCode from '../assets/number_qrCode.png';
+
+import { useState } from 'react';
 
 export default function LandingPage() {
+    const [isQrModalOpen, setIsQrModalOpen] = useState(false);
+
     return (
         <div className="pt-10">
             {/* Hero Section with Overlay Content */}
             <section className="relative w-full min-h-[600px] md:min-h-screen flex flex-col justify-center overflow-hidden bg-white">
                 {/* Background Image */}
-                <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
-                    <img
-                        src={landingMain}
-                        alt="Main Visual"
-                        className="w-full h-full object-cover object-top md:object-contain md:object-top"
-                    />
-                </div>
+                <div
+                    className="absolute inset-0 w-full h-full z-0 pointer-events-none bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url(${landingMain})` }}
+                />
 
                 {/* Overlay Content Container */}
                 <div className="relative z-10 flex flex-col items-center justify-start pt-24 pb-12 md:justify-center md:py-20 text-center px-4 w-full">
@@ -42,7 +43,16 @@ export default function LandingPage() {
                         <p className="text-[10px] md:text-xs text-gray-700 mt-1 font-medium">* 문의는 하단 &lt;자주 묻는 질문&gt; 확인 후 연락주세요!</p>
 
                         <div className="mt-2 md:mt-4">
-                            <a href="tel:010-8395-1256" className="inline-block px-6 py-2 md:px-8 md:py-3 border-2 border-black rounded-full font-bold text-sm md:text-lg hover:bg-black hover:text-[#FFE142] transition bg-white/50 backdrop-blur-sm">
+                            <a
+                                href="tel:010-8395-1256"
+                                onClick={(e) => {
+                                    if (window.innerWidth >= 768) {
+                                        e.preventDefault();
+                                        setIsQrModalOpen(true);
+                                    }
+                                }}
+                                className="inline-block px-6 py-2 md:px-8 md:py-3 border-2 border-black rounded-full font-bold text-sm md:text-lg hover:bg-black hover:text-[#FFE142] transition bg-white/50 backdrop-blur-sm"
+                            >
                                 문의 : 초록이 선생님 010-8395-1256
                             </a>
                         </div>
@@ -68,7 +78,7 @@ export default function LandingPage() {
                         숲 체험 교육을 운영합니다.
                     </p>
 
-                    <div className="mt-8">
+                    {/* <div className="mt-8">
                         <Link
                             to="#"
                             onClick={(e) => e.preventDefault()}
@@ -76,7 +86,7 @@ export default function LandingPage() {
                         >
                             숲 체험 학교 신청하기
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Divider Image */}
@@ -99,10 +109,6 @@ export default function LandingPage() {
                         자신감을 얻고 자존감을 기를 수 있는<br />
                         기회를 제공하는 고무적인 과정입니다.
                     </p>
-
-                    <p className="text-base font-bold pt-8">
-                        숲 체험 교육의 주요 방향성을 확인해보세요!
-                    </p>
                 </div>
             </section>
 
@@ -110,12 +116,12 @@ export default function LandingPage() {
             <section className="relative overflow-hidden">
 
                 {/* ===== 상단 초록 배경 ===== */}
-                <div className="bg-[#719435] h-40 md:h-56 w-full relative">
+                <div className="bg-[#719435] h-20 md:h-32 w-full relative">
                     {/* Wave SVG */}
                     <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
                         <svg
                             viewBox="0 0 1440 320"
-                            className="w-full h-24 md:h-32"
+                            className="w-full h-16 md:h-24"
                             preserveAspectRatio="none"
                         >
                             <path
@@ -218,6 +224,36 @@ export default function LandingPage() {
                     <img src={footerDecoration} alt="Forest Friends" className="w-full max-w-6xl h-auto object-contain" />
                 </div>
             </section>
+
+            {/* QR Code Modal for PC */}
+            {isQrModalOpen && (
+                <div
+                    className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm pb-10"
+                    onClick={() => setIsQrModalOpen(false)}
+                >
+                    <div
+                        className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col items-center gap-4 transform transition-all"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <h3 className="font-black text-2xl text-gray-900 mb-2">전화 문의</h3>
+                        <p className="text-gray-600 font-medium mb-4 text-center">스마트폰 카메라로<br />아래 QR코드를 스캔해주세요.</p>
+
+                        <img src={qrCode} alt="전화 문의 QR코드" className="w-48 h-48 md:w-56 md:h-56 object-contain border-4 border-gray-100 rounded-xl" />
+
+                        <div className="text-center mt-4">
+                            <p className="font-bold text-xl text-[#719435]">초록이 선생님</p>
+                            <p className="font-black text-2xl md:text-3xl text-gray-900 tracking-tight mt-1">010-8395-1256</p>
+                        </div>
+
+                        <button
+                            onClick={() => setIsQrModalOpen(false)}
+                            className="mt-6 px-10 py-3 bg-gray-100 text-gray-800 font-bold rounded-full hover:bg-gray-200 transition"
+                        >
+                            닫기
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
