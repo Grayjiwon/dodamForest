@@ -1,4 +1,4 @@
-import landingMain from '../assets/landing_main.png';
+import landingMain from '../assets/landing_main_sub.png';
 import characterGreen from '../assets/character_green.png';
 import footerDecoration from '../assets/footer_decoration.png';
 import sectionDivider from '../assets/section_divider.png';
